@@ -41,7 +41,7 @@ if SERVICE_NAMES:
 response = requests.post(API_URL, headers=headers, json=payload)
 response.raise_for_status()
 
-print("✅ Данные получены, распаковка архива...")
+print("Данные получены, распаковка архива...")
 
 """Распаковка zip-архива"""
 
