@@ -1,0 +1,79 @@
+Структура таблицы:
+
+orders
+order_id	client_id	order_date
+
+order_items
+order_item_id	order_id	product_id	price	quantity
+
+2.1. Аналитический отчёт по продажам
+
+Требуется:
+
+Дата заказа
+Количество уникальных клиентов за день
+Общая сумма всех заказов за день
+Средний чек на клиента за день
+
+SELECT
+    o.order_date,
+    COUNT(DISTINCT o.client_id) AS unique_clients,
+    SUM(oi.price * oi.quantity) AS total_sales,
+    ROUND(SUM(oi.price * oi.quantity) / COUNT(DISTINCT o.client_id), 2) AS avg_check_per_client
+FROM
+    orders o
+JOIN
+    order_items oi ON o.order_id = oi.order_id
+GROUP BY
+    o.order_date
+ORDER BY
+    o.order_date;
+
+
+2.2. Топ-3 продукта по продажам за последний месяц
+
+Требуется:
+
+ID продукта
+Сумма продаж
+
+SELECT
+    oi.product_id,
+    SUM(oi.price * oi.quantity) AS total_sales
+FROM
+    order_items oi
+JOIN
+    orders o ON oi.order_id = o.order_id
+WHERE
+    o.order_date >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '1 month'
+    AND o.order_date < DATE_TRUNC('month', CURRENT_DATE)
+GROUP BY
+    oi.product_id
+ORDER BY
+    total_sales DESC
+LIMIT 3;
+
+2.3. Отчёт по среднему количеству заказов на клиента за последние 3 месяца
+
+Требуется:
+
+ID клиента
+Среднее количество заказов
+
+SELECT
+    o.client_id,
+    ROUND(COUNT(DISTINCT o.order_id) / 3.0, 2) AS avg_orders_per_month
+FROM
+    orders o
+WHERE
+    o.order_date >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '3 month'
+GROUP BY
+    o.client_id
+ORDER BY
+    avg_orders_per_month DESC;
+
+
+
+
+
+
