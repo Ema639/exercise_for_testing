@@ -1,0 +1,9 @@
+"""Конфигурация"""
+API_URL = "https://documents-api.wildberries.ru/api/v1/documents/list"
+TOKEN = "eyJhbGciOiJFUzI1NiIsImtpZCI6IjIwMjUwMjE3djEiLCJ0eXAiOiJKV1QifQ.eyJlbnQiOjEsImV4cCI6MTc1ODMyMTc4MywiaWQiOiIwMTk1Yjg0Yy05Y2M0LTcyNmMtYTZiMC0zMGQyNzE0MmM0OGIiLCJpaWQiOjEyNjAzNzE5LCJvaWQiOjEyODc5MiwicyI6MTA3Mzc0NjAyMCwic2lkIjoiZDJmZTQ5NTctNjM2Yy00MmMwLWEzMDItYjUzOTI5MGEwZDFlIiwidCI6ZmFsc2UsInVpZCI6MTI2MDM3MTl9.-XTA__Q8kRAxNaRw-yoKEITVTMCrOEJVD1M6U0P8TS7dsKV55mJb31VDmfcJR0KpAdCoqjv47mlJ6dtDBXr5Uw"
+CATEGORY = "Weekly implementation report"
+SERVICE_NAMES = []
+
+SERVICE_ACCOUNT_FILE = "turnkey-rookery-435016-h9-5295f461e7be.json"
+ORIGINAL_SPREADSHEET_ID = "1-1Y6pb-68PZoNnncR7bC1w2bnHJgSA7wbv7kNajPe6A"
+YOUR_NAME = "Тэнцер Алексей"

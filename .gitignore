@@ -1,0 +1,12 @@
+# Python virtualenv
+.venv/
+venv/
+
+# PyCharm files
+.idea/
+
+# Service Account key
+turnkey-rookery-435016-h9-5295f461e7be.json
+
+# __pycache__ folders
+__pycache__/
